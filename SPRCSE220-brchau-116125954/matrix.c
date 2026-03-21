@@ -46,7 +46,7 @@ int SparseMatrix(int D[2], int M[D[0]][D[1]],
       for(int j = 0; j < cols; j++){
         value = *(*(M + i) + j);
         if(value){
-          if(nonZeroCount > m){
+          if(nonZeroCount >= m){
             return -1;
           }
           /*Used to set value of S, S's avlues are set even if there
@@ -91,8 +91,8 @@ int HadamardProduct(const int D[6],
       rows = mRows;
       cols = nCols;
       if(aRows < rows || aCols < cols){
-        rows = aRows;
-        cols = aCols;
+        rows = min(aRows, rows);
+        cols = min(aCols,cols);
         status = -3;
       }
       else if(aRows > rows || aCols > cols){
@@ -153,19 +153,19 @@ int Multiplication(const int D[6],
     if(mCols != nRows){
       length = min(rows,cols);
       if(aRows < rows || aCols < cols){
-        rows = aRows;
-        cols = aCols;
-        status = -1;
+        rows = min(aRows,rows);
+        cols = min(aCols,cols);
+        status = -2;
       }
       else{
-        status = -2;
+        status = -1;
       }
     }
     else{
       length = mCols;
       if(aRows < rows || aCols < cols){
-        rows = aRows;
-        cols = aCols;
+        rows = min(aRows,rows);
+        cols = min(aCols,cols);
         status = -3;
       }
       else if(aRows > rows || aCols > cols){
