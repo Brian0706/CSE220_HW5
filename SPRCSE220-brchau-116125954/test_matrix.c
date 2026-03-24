@@ -833,7 +833,7 @@ Test(DiagonalSum, smallest_rect2)
 {
     int D[4] = {2,1,4,3};
 
-    int A[3][4] = {
+    int A[2][1] = {
         {1},
         {2}
     };
