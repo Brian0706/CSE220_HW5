@@ -106,8 +106,8 @@ int HadamardProduct(const int D[6],
       rows = min(mRows,nRows);
       cols = min(mCols,nCols);
       if(aRows < rows || aCols < cols){
-        rows = aRows;
-        cols = aCols;
+        rows = min(aRows,rows);
+        cols = min(aCols,cols);
         status = -2;
       }
       else{
@@ -204,10 +204,12 @@ int DiagonalSum(const int D[4],
     int dsCols = D[3];
     
     int status;
-    int value;
+    int value = 0;
     int diagonalSize = min(rows,cols);
     /*Counter variable for for loops*/
     int i;
+    int numOfRows = min(rows, dsRows - 2);
+    int numOfCols = min(cols, dsCols);
     memset(DS, 0, dsRows * dsCols * sizeof(int));
     if(dsRows < rows + 2 || dsCols < cols + 2){
       if(dsRows < 1){
@@ -221,28 +223,36 @@ int DiagonalSum(const int D[4],
     else{
       status = 1;
     }
-    for(i = 0; i < diagonalSize; i++){
-      value += *(*(A+i)+i);
-    }
-    *(*DS) = value;
-    value = 0;
-    for(i = 0; i < diagonalSize;i++){
-      value += *(*(A+i)+(cols-i-1));
-    }
-    *(*(DS)+1) = value;
-    for(i = 0; i < dsCols;i++){
-      value = 0;
-      for(int j = 0; j < rows; j++){
-        value += *(*(A+j)+i);
+    if(dsCols > 0){
+      for(i = 0; i < diagonalSize; i++){
+        value += *(*(A+i)+i);
       }
-      *(*(DS+1)+i) = value;
-    }
-    for(i = 2; i < dsRows;i++){
+      *(*DS) = value;
       value = 0;
-      for(int j = 0; j < cols; j++){
-        value += *(*(A+i)+j);
+    }
+    if(dsCols > 1){
+      for(i = 0; i < diagonalSize;i++){
+        value += *(*(A+i)+(cols-i-1));
       }
-      *(*(DS+i)) = value;
+      *(*(DS)+1) = value;
+    }
+    if(dsRows > 1){
+      for(i = 0; i < numOfCols;i++){
+        value = 0;
+        for(int j = 0; j < rows; j++){
+          value += *(*(A+j)+i);
+        }
+        *(*(DS+1)+i) = value;
+      }
+    }
+    if(dsCols > 0){
+      for(i = 0; i < numOfRows;i++){
+        value = 0;
+        for(int j = 0; j < cols; j++){
+          value += *(*(A+i)+j);
+        }
+        *(*(DS+i+2)) = value;
+      }
     }
     return status;
 }
