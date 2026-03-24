@@ -332,7 +332,7 @@ Test(HadamardProduct, compatiable_rect2)
         {5,6}
     };
 
-    int N[3][2] = {
+    int N[3][3] = {
         {2,2},
         {2,2},
         {2,2}
@@ -347,7 +347,7 @@ Test(HadamardProduct, compatiable_rect2)
 
 Test(HadamardProduct, non_compatiable)
 {
-    int D[6] = {3,2,3,2,3,2};
+    int D[6] = {3,2,2,3,2,3};
 
     int M[3][2] = {
         {1,2},
@@ -364,7 +364,7 @@ Test(HadamardProduct, non_compatiable)
 
     int r = HadamardProduct(D,M,N,A);
 
-    cr_assert_eq(r,1);
+    cr_assert_eq(r,-1);
 }
 
 Test(HadamardProduct, one_by_one)
@@ -388,17 +388,17 @@ Test(HadamardProduct, one_by_one)
 
 Test(HadamardProduct, diff_size_rect)
 {
-    int D[6] = {3,2,2,3,2,2};
+    int D[6] = {2,3,3,2,2,2};
 
-    int M[3][2] = {
+    int M[2][3] = {
+        {2,2,2},
+        {2,2,2}
+    };
+
+    int N[3][2] = {
         {1,2},
         {3,4},
         {5,6}
-    };
-
-    int N[2][3] = {
-        {2,2,2},
-        {2,2,2}
     };
 
     int A[2][2];

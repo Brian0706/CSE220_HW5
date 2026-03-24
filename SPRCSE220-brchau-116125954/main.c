@@ -12,21 +12,23 @@ void print_matrix(const char *name, int *matrix, int rows, int cols) {
 }
 
 int main(){
-    int D[6] = {2,2,2,2,1,1};
+    int D[6] = {3,3,3,3,3,3};
 
-    int M[2][2] = {
-        {1,2},
-        {3,4}
+    int M[3][3] = {
+        {1,2,3},
+        {4,5,6},
+        {7,8,9}
     };
 
-    int N[2][2] = {
-        {2,2},
-        {2,2}
+    int N[3][3] = {
+        {2,2,2},
+        {2,2,2},
+        {2,2,2}
     };
 
-    int A[1][1];
+    int A[3][3];
 
     int r = HadamardProduct(D,M,N,A);
-    print_matrix("A",(int *) A, 1,1);
+    print_matrix("A",(int *) A, 3,3);
     return 0;
 }
