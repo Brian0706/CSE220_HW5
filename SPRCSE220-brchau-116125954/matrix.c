@@ -3,8 +3,8 @@
  * Homework 5 – Pointer Operations
  * CSE 220 – Spring 2026
  *
- * Name:
- * SBU ID:
+ * Name: Brian Chau
+ * SBU ID: 116125954
  */
 
 #include "matrix.h"
@@ -211,13 +211,13 @@ int DiagonalSum(const int D[4],
     int numOfRows = min(rows, dsRows - 2);
     int numOfCols = min(cols, dsCols);
     memset(DS, 0, dsRows * dsCols * sizeof(int));
-    if(dsRows < rows + 2 || dsCols < cols + 2){
+    if(dsRows < rows + 2 || dsCols < cols){
       if(dsRows < 1){
         return -1;
       }
       status = -1;
     }
-    else if(dsRows > rows + 2 || dsCols > cols + 2){
+    else if(dsRows > rows + 2 || dsCols > cols){
       status = 2;
     }
     else{

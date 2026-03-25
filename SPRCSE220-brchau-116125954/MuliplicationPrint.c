@@ -1,4 +1,12 @@
 /*
+ * Homework 5 – Pointer Operations
+ * CSE 220 – Spring 2026
+ *
+ * Name: Brian Chau
+ * SBU ID: 116125954
+ */
+
+/*
  * Helper function to print a matrix for testing
  */
 void print_matrix(const char *name, int *matrix, int rows, int cols) {

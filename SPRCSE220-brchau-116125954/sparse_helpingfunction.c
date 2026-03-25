@@ -1,4 +1,12 @@
 /*
+ * Homework 5 – Pointer Operations
+ * CSE 220 – Spring 2026
+ *
+ * Name: Brian Chau
+ * SBU ID: 116125954
+ */
+ 
+/*
  * Helper function to print a sparse matrix representation
  * Not required for the assignment but useful for testing
  */
