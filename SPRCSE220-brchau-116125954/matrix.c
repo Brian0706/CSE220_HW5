@@ -31,11 +31,11 @@ int min(int a, int b)
 int SparseMatrix(int D[2], int M[D[0]][D[1]],
                  int S[3][(D[1] > D[0] ? D[1] : D[0])])
 {
+  if(D == NULL || M == NULL|| S == NULL){
+    return -4;
+  }
   if(D[0] < 1 || D[1] < 1){
     return -3;
-  }
-  if(D[0] == NULL||D[1] == NULL){
-    return -4;
   }
   int rows = D[0];
   int cols = D[1];
@@ -84,11 +84,11 @@ int HadamardProduct(const int D[6],
                     const int N[D[2]][D[3]],
                     int A[D[4]][D[5]])
 {
+  if(D == NULL|| M == NULL|| N == NULL|| A == NULL){
+    return -4;
+  }
   if(D[0] < 1 || D[1] < 1|| D[2] < 1|| D[3] < 1|| D[4] < 1|| D[5] < 1){
     return -3;
-  }
-  if(D[0] == NULL||D[1] == NULL||D[2] == NULL||D[3] == NULL){
-    return -4;
   }
   int mRows = D[0];
   int mCols = D[1];
@@ -152,11 +152,11 @@ int Multiplication(const int D[6],
                    const int N[D[2]][D[3]],
                    int A[D[4]][D[5]])
 {
+  if(D == NULL|| M == NULL|| N == NULL|| A == NULL){
+    return -4;
+  }
   if(D[0] < 1 || D[1] < 1|| D[2] < 1|| D[3] < 1|| D[4] < 1|| D[5] < 1){
     return -3;
-  }
-  f(D[0] == NULL||D[1] == NULL||D[2] == NULL||D[3] == NULL||D[4] == NULL||D[5] == NULL){
-    return -4;
   }
   int mRows = D[0];
   int mCols = D[1];
@@ -219,11 +219,11 @@ int DiagonalSum(const int D[4],
                 const int A[D[0]][D[1]],
                 int DS[D[2]][D[3]])
 {
+  if(D == NULL|| A == NULL || DS == NULL){
+    return -4;
+  }
   if(D[0] < 1 || D[1] < 1|| D[2] < 1|| D[3] < 1){
     return -3;
-  }
-  f(D[0] == NULL||D[1] == NULL||D[2] == NULL||D[3] == NULL){
-    return -4;
   }
   int rows = D[0];
   int cols = D[1];

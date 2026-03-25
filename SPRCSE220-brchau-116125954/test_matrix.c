@@ -390,6 +390,27 @@ Test(SparseMatrix, zero_length_3){
     cr_assert_eq(result, -3);
 }
 
+Test(SparseMatrix, null_M){
+    int D[2] = {2,2};
+    int **M = NULL;
+
+    int S[3][3];
+
+    int result = SparseMatrix(D,M,S);
+    cr_assert_eq(result, -4);
+}
+
+Test(SparseMatrix, null_S){
+    int D[2] = {2,2};
+    int **M = NULL;
+
+    int **S = NULL;
+
+    int result = SparseMatrix(D,M,S);
+    cr_assert_eq(result, -4);
+}
+
+
 Test(HadamardProduct, compatible)
 {
     int D[6] = {2,2,2,2,2,2};
