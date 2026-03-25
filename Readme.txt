@@ -7,7 +7,4 @@
  * SBU ID: 116125954
  */
 
- For Sparse Matrix, as it is not specified, my function adds 
- to the matrix S as it finds elemenets. If it determines that 
- the matrix is not sparse, the elements that it copied into S will
- remain.
+ Tests are located in test_matrix.c and functions are located in test_matrix.c
