@@ -52,6 +52,7 @@ int SparseMatrix(int D[2], int M[D[0]][D[1]],
     if(nonZeroCount > m){
       return -1;
     }
+    int count = 0;
     for(int i = 0; i < rows; i++){
       for(int j = 0; j < cols; j++){
         value = *(*(M + i) + j);
@@ -59,9 +60,10 @@ int SparseMatrix(int D[2], int M[D[0]][D[1]],
           /*Used to set value of S, S's avlues are set even if there
            *the matrix is not sparce.
           */
-          *(*(S)+nonZeroCount) = i;
-          *(*(S+1)+nonZeroCount) = j;
-          *(*(S+2)+nonZeroCount) = value;
+          *(*(S)+count) = i;
+          *(*(S+1)+count) = j;
+          *(*(S+2)+count) = value;
+          count++;
         }
       }
     }
