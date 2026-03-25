@@ -357,6 +357,39 @@ Test(SparseMatrix, empty_rectangle_2){
     cr_assert_eq(result, 0);
 }
 
+Test(SparseMatrix, zero_length){
+    int D[2] = {3,0};
+
+    int M[1][1] = {{0}};
+
+    int S[3][3];
+
+    int result = SparseMatrix(D,M,S);
+    cr_assert_eq(result, -3);
+}
+
+Test(SparseMatrix, zero_length_2){
+    int D[2] = {0,3};
+
+    int M[1][1]={{0}};
+
+    int S[3][3];
+
+    int result = SparseMatrix(D,M,S);
+    cr_assert_eq(result, -3);
+}
+
+Test(SparseMatrix, zero_length_3){
+    int D[2] = {0,0};
+
+    int M[1][1] = {{0}};
+
+    int S[3][3];
+
+    int result = SparseMatrix(D,M,S);
+    cr_assert_eq(result, -3);
+}
+
 Test(HadamardProduct, compatible)
 {
     int D[6] = {2,2,2,2,2,2};
@@ -784,6 +817,111 @@ Test(HadamardProduct, diff_sizes_just_enough)
     cr_assert_eq(r,-1);
 }
 
+Test(HadamardProduct, zero_length)
+{
+    int D[6] = {2,0,3,3,2,2};
+
+    int M[1][1] ={{0}};
+
+    int N[1][1]= {{0}};
+
+    int A[2][2];
+
+    int r = HadamardProduct(D,M,N,A);
+
+    cr_assert_eq(r,-3);
+}
+
+Test(HadamardProduct, zero_length_2)
+{
+    int D[6] = {0,2,3,3,2,2};
+
+    int M[1][1]={{0}};
+
+    int N[1][1]={{0}};
+
+    int A[2][2];
+
+    int r = HadamardProduct(D,M,N,A);
+
+    cr_assert_eq(r,-3);
+}
+
+Test(HadamardProduct, zero_length_3)
+{
+    int D[6] = {2,2,0,3,2,2};
+
+    int M[1][1]={{0}};
+
+    int N[1][1]={{0}};
+
+    int A[2][2];
+
+    int r = HadamardProduct(D,M,N,A);
+
+    cr_assert_eq(r,-3);
+}
+
+Test(HadamardProduct, zero_length_4)
+{
+    int D[6] = {2,2,3,0,2,2};
+
+    int M[1][1]={{0}};
+
+    int N[1][1]={{0}};
+
+    int A[2][2];
+
+    int r = HadamardProduct(D,M,N,A);
+
+    cr_assert_eq(r,-3);
+}
+
+Test(HadamardProduct, zero_length_5)
+{
+    int D[6] = {2,2,3,3,0,2};
+
+    int M[1][1]={{0}};
+
+    int N[1][1]={{0}};
+
+    int A[1][1]={{0}};
+
+    int r = HadamardProduct(D,M,N,A);
+
+    cr_assert_eq(r,-3);
+}
+
+Test(HadamardProduct, zero_length_6)
+{
+    int D[6] = {2,2,3,3,2,0};
+
+    int M[1][1]={{0}};
+
+    int N[1][1]={{0}};
+
+    int A[1][1]={{0}};
+
+    int r = HadamardProduct(D,M,N,A);
+
+    cr_assert_eq(r,-3);
+}
+
+Test(HadamardProduct, zero_length_7)
+{
+    int D[6] = {0,0,0,0,0,0};
+
+    int M[1][1]={{0}};
+
+    int N[1][1]={{0}};
+
+    int A[1][1]={{0}};
+
+    int r = HadamardProduct(D,M,N,A);
+
+    cr_assert_eq(r,-3);
+}
+
 Test(Multiplication, simple_case)
 {
     int D[6] = {2,2,2,2,2,2};
@@ -1206,6 +1344,111 @@ Test(Multiplication, too_big_2)
     cr_assert_eq(r,2);
 }
 
+Test(Multiplication, zero_length)
+{
+    int D[6] = {2,0,3,3,2,2};
+
+    int M[1][1] ={{0}};
+
+    int N[1][1]= {{0}};
+
+    int A[2][2];
+
+    int r = Multiplication(D,M,N,A);
+
+    cr_assert_eq(r,-3);
+}
+
+Test(Multiplication, zero_length_2)
+{
+    int D[6] = {0,2,3,3,2,2};
+
+    int M[1][1]={{0}};
+
+    int N[1][1]={{0}};
+
+    int A[2][2];
+
+    int r = Multiplication(D,M,N,A);
+
+    cr_assert_eq(r,-3);
+}
+
+Test(Multiplication, zero_length_3)
+{
+    int D[6] = {2,2,0,3,2,2};
+
+    int M[1][1]={{0}};
+
+    int N[1][1]={{0}};
+
+    int A[2][2];
+
+    int r = Multiplication(D,M,N,A);
+
+    cr_assert_eq(r,-3);
+}
+
+Test(Multiplication, zero_length_4)
+{
+    int D[6] = {2,2,3,0,2,2};
+
+    int M[1][1]={{0}};
+
+    int N[1][1]={{0}};
+
+    int A[2][2];
+
+    int r = Multiplication(D,M,N,A);
+
+    cr_assert_eq(r,-3);
+}
+
+Test(Multiplication, zero_length_5)
+{
+    int D[6] = {2,2,3,3,0,2};
+
+    int M[1][1]={{0}};
+
+    int N[1][1]={{0}};
+
+    int A[1][1] = {{0}};
+
+    int r = Multiplication(D,M,N,A);
+
+    cr_assert_eq(r,-3);
+}
+
+Test(Multiplication, zero_length_6)
+{
+    int D[6] = {2,2,3,3,2,0};
+
+    int M[1][1]={{0}};
+
+    int N[1][1]={{0}};
+
+    int A[1][1]={{0}};
+
+    int r = Multiplication(D,M,N,A);
+
+    cr_assert_eq(r,-3);
+}
+
+Test(Multiplication, zero_length_7)
+{
+    int D[6] = {0,0,0,0,0,0};
+
+    int M[1][1]={{0}};
+
+    int N[1][1]={{0}};
+
+    int A[1][1]={{0}};
+
+    int r = Multiplication(D,M,N,A);
+
+    cr_assert_eq(r,-3);
+}
+
 Test(DiagonalSum, square_matrix)
 {
     int D[4] = {3,3,5,3};
@@ -1549,4 +1792,69 @@ Test(DiagonalSum, compatiable_3)
     int r = DiagonalSum(D,A,DS);
 
     cr_assert_eq(r,1);
+}
+
+Test(DiagonalSum, zero_length)
+{
+    int D[4] = {0,3,4,3};
+
+    int A[1][1];
+
+    int DS[4][3];
+
+    int r = DiagonalSum(D,A,DS);
+
+    cr_assert_eq(r,-3);
+}
+
+Test(DiagonalSum, zero_length_2)
+{
+    int D[4] = {2,0,4,3};
+
+    int A[1][1];
+
+    int DS[4][3];
+
+    int r = DiagonalSum(D,A,DS);
+
+    cr_assert_eq(r,-3);
+}
+
+Test(DiagonalSum, zero_length_3)
+{
+    int D[4] = {2,3,0,3};
+
+    int A[1][1];
+
+    int DS[4][3];
+
+    int r = DiagonalSum(D,A,DS);
+
+    cr_assert_eq(r,-3);
+}
+
+Test(DiagonalSum, zero_length_4)
+{
+    int D[4] = {2,3,4,0};
+
+    int A[1][1];
+
+    int DS[4][3];
+
+    int r = DiagonalSum(D,A,DS);
+
+    cr_assert_eq(r,-3);
+}
+
+Test(DiagonalSum, zero_length_5)
+{
+    int D[4] = {0,0,0,0};
+
+    int A[1][1];
+
+    int DS[4][3];
+
+    int r = DiagonalSum(D,A,DS);
+
+    cr_assert_eq(r,-3);
 }
