@@ -18,3 +18,6 @@
  With my tests, they do not check for a null D because this causes the function to crash. This is because the function
  definition uses the values of D so I cannot check for null before they are used by C to fill in the function defintiion.
  Therefore, having D be a null array will cause the program to crash and I can't do anything to stop it.
+
+For diagonalSum, since the anti-diagonal is only defined for square matrices, the anti-diagonnal is not calculated for 
+rectangular matrices as the Professor says on Piazza.

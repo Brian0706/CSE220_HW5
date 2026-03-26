@@ -21,14 +21,17 @@ void print_matrix(const char *name, int *matrix, int rows, int cols) {
 }
 
 int main(){
-    int D[2] = {2,2};
-    int **M = NULL;
+    int D[4] = {2,3,2,3};
 
-    int S[3][3];
+    int A[2][3] = {
+        {3,5,7},
+        {2,4,6}
+    };
 
-    int result = SparseMatrix(D,M,S);
-    printf("%d", result);
+    int DS[2][3];
 
-    // print_matrix("A",(int *) S, 3,3);
+    int r = DiagonalSum(D,A,DS);
+
+    print_matrix("A",(int *) DS, 2,3);
     return 0;
 }

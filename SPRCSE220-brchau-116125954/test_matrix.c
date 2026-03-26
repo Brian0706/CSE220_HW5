@@ -217,6 +217,21 @@ Test(SparseMatrix, one_by_one)
     cr_assert_eq(result,1);
 }
 
+Test(SparseMatrix, one_by_one_zero)
+{
+    int D[2] = {1,1};
+
+    int M[1][1] = {
+        {0}
+    };
+
+    int S[3][1];
+
+    int result = SparseMatrix(D,M,S);
+
+    cr_assert_eq(result,0);
+}
+
 Test(SparseMatrix, not_sparse2){
     int D[2] = {4,4};
 
@@ -355,6 +370,23 @@ Test(SparseMatrix, empty_rectangle_2){
 
     int result = SparseMatrix(D,M,S);
     cr_assert_eq(result, 0);
+}
+
+Test(SparseMatrix, negative_values){
+    int D[2] = {5,3};
+
+    int M[5][3] = {
+        {0,-1,0},
+        {0,0,0},
+        {0,0,0},
+        {0,0,0},
+        {0,0,0}
+    };
+
+    int S[3][5];
+
+    int result = SparseMatrix(D,M,S);
+    cr_assert_eq(result, 1);
 }
 
 Test(SparseMatrix, zero_length){
@@ -710,6 +742,27 @@ Test(HadamardProduct, too_small_2){
 }
 
 Test(HadamardProduct, too_small_3){
+    int D[6] = {3,3,3,3,3,2};
+
+    int M[3][3] = {
+        {1,2,3},
+        {4,5,6},
+        {7,8,9}
+    };
+
+    int N[3][3] = {
+        {2,2,2},
+        {2,2,2},
+        {2,2,2}
+    };
+
+    int A[3][2];
+
+    int r = HadamardProduct(D,M,N,A);
+    cr_assert_eq(r,-3);
+}
+
+Test(HadamardProduct, too_small_4){
     int D[6] = {3,3,3,3,2,4};
 
     int M[3][3] = {
@@ -1402,6 +1455,63 @@ Test(Multiplication, too_big_2)
     cr_assert_eq(r,2);
 }
 
+Test(Multiplication, too_big_3)
+{
+    int D[6] = {2,3,3,2,2,3};
+    int M[2][3] = {
+        {4,3,2},
+        {3,2,1}
+    };
+
+    int N[3][2] = {
+        {1,2},
+        {3,4},
+        {5,6}
+    };
+
+    int A[2][3];
+
+    int r = Multiplication(D,M,N,A);
+
+    cr_assert_eq(r,2);
+}
+
+Test(Multiplication, one_by_one)
+{
+    int D[6] = {1,1,1,1,1,1};
+    int M[1][1] = {
+        {4}
+    };
+
+    int N[1][1] = {
+        {2}
+    };
+
+    int A[1][1];
+
+    int r = Multiplication(D,M,N,A);
+
+    cr_assert_eq(r,1);
+}
+
+Test(Multiplication,identity){
+    int D[6] = {2,2,2,2,2,2};
+    int M[2][2] = {
+        {1,0},
+        {0,1}
+    };
+
+    int N[2][2] = {
+        {1,2},
+        {3,4}
+    };
+
+    int A[2][2];
+
+    int r = Multiplication(D,M,N,A);
+    cr_assert_eq(r, 1);
+}
+
 Test(Multiplication, zero_length)
 {
     int D[6] = {2,0,3,3,2,2};
@@ -1876,13 +1986,43 @@ Test(DiagonalSum, too_big_6)
 }
 
 
-Test(DiagonalSum, compatiable_3)
+Test(DiagonalSum, one_row)
 {
-    int D[4] = {2,3,4,3};
+    int D[4] = {2,3,1,3};
 
     int A[2][3] = {
         {3,5,7},
         {2,4,6}
+    };
+
+    int DS[1][3];
+
+    int r = DiagonalSum(D,A,DS);
+
+    cr_assert_eq(r,-1);
+}
+
+Test(DiagonalSum, two_row){
+    int D[4] = {2,3,2,3};
+
+    int A[2][3] = {
+        {3,5,7},
+        {2,4,6}
+    };
+
+    int DS[2][3];
+
+    int r = DiagonalSum(D,A,DS);
+
+    cr_assert_eq(r,-1);
+}
+
+Test(DiagonalSum, all_zeros){
+    int D[4] = {2,3,4,3};
+
+    int A[2][3] = {
+        {0,0,0},
+        {0,0,0}
     };
 
     int DS[4][3];

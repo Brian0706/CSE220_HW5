@@ -251,14 +251,12 @@ int DiagonalSum(const int D[4],
   else{
     status = 1;
   }
-  if(dsCols > 0){
-    for(i = 0; i < diagonalSize; i++){
-      value += *(*(A+i)+i);
-    }
-    *(*DS) = value;
-    value = 0;
+  for(i = 0; i < diagonalSize; i++){
+    value += *(*(A+i)+i);
   }
-  if(dsCols > 1){
+  *(*DS) = value;
+  value = 0;
+  if(rows == cols){
     for(i = 0; i < diagonalSize;i++){
       value += *(*(A+i)+(cols-i-1));
     }
@@ -273,7 +271,7 @@ int DiagonalSum(const int D[4],
       *(*(DS+1)+i) = value;
     }
   }
-  if(dsCols > 0){
+  if(dsRows > 2){
     for(i = 0; i < numOfRows;i++){
       value = 0;
       for(int j = 0; j < cols; j++){
