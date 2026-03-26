@@ -392,21 +392,18 @@ Test(SparseMatrix, zero_length_3){
 
 Test(SparseMatrix, null_M){
     int D[2] = {2,2};
-    int **M = NULL;
 
     int S[3][3];
 
-    int result = SparseMatrix(D,M,S);
+    int result = SparseMatrix(D,NULL,S);
     cr_assert_eq(result, -4);
 }
 
 Test(SparseMatrix, null_S){
     int D[2] = {2,2};
-    int **M = NULL;
-
-    int **S = NULL;
-
-    int result = SparseMatrix(D,M,S);
+    
+    int M[1][1] = {{0}};
+    int result = SparseMatrix(D,M,NULL);
     cr_assert_eq(result, -4);
 }
 
@@ -943,6 +940,46 @@ Test(HadamardProduct, zero_length_7)
     cr_assert_eq(r,-3);
 }
 
+Test(HadamardProduct, null_M)
+{
+    int D[6] = {0,0,0,0,0,0};
+
+    int N[1][1]={{0}};
+
+    int A[1][1]={{0}};
+
+    int r = HadamardProduct(D,NULL,N,A);
+
+    cr_assert_eq(r,-4);
+}
+
+
+Test(HadamardProduct, null_N)
+{
+    int D[6] = {0,0,0,0,0,0};
+
+    int M[1][1]={{0}};
+
+    int A[1][1]={{0}};
+
+    int r = HadamardProduct(D,M,NULL,A);
+
+    cr_assert_eq(r,-4);
+}
+
+Test(HadamardProduct, null_A)
+{
+    int D[6] = {0,0,0,0,0,0};
+
+    int M[1][1]={{0}};
+
+    int N[1][1]={{0}};
+
+    int r = HadamardProduct(D,M,N,NULL);
+
+    cr_assert_eq(r,-4);
+}
+
 Test(Multiplication, simple_case)
 {
     int D[6] = {2,2,2,2,2,2};
@@ -1470,6 +1507,46 @@ Test(Multiplication, zero_length_7)
     cr_assert_eq(r,-3);
 }
 
+Test(Multiplication, null_M)
+{
+    int D[6] = {0,0,0,0,0,0};
+
+    int N[1][1]={{0}};
+
+    int A[1][1]={{0}};
+
+    int r = Multiplication(D,NULL,N,A);
+
+    cr_assert_eq(r,-4);
+}
+
+
+Test(Multiplication, null_N)
+{
+    int D[6] = {0,0,0,0,0,0};
+
+    int M[1][1]={{0}};
+
+    int A[1][1]={{0}};
+
+    int r = Multiplication(D,M,NULL,A);
+
+    cr_assert_eq(r,-4);
+}
+
+Test(Multiplication, null_A)
+{
+    int D[6] = {0,0,0,0,0,0};
+
+    int M[1][1]={{0}};
+
+    int N[1][1]={{0}};
+
+    int r = Multiplication(D,M,N,NULL);
+
+    cr_assert_eq(r,-4);
+}
+
 Test(DiagonalSum, square_matrix)
 {
     int D[4] = {3,3,5,3};
@@ -1878,4 +1955,26 @@ Test(DiagonalSum, zero_length_5)
     int r = DiagonalSum(D,A,DS);
 
     cr_assert_eq(r,-3);
+}
+
+Test(DiagonalSum, null_A)
+{
+    int D[4] = {0,0,0,0};
+
+    int DS[4][3];
+
+    int r = DiagonalSum(D,NULL,DS);
+
+    cr_assert_eq(r,-4);
+}
+
+Test(DiagonalSum, null_DS)
+{
+    int D[4] = {0,0,0,0};
+
+    int A[1][1];
+
+    int r = DiagonalSum(D,A,NULL);
+
+    cr_assert_eq(r,-4);
 }
