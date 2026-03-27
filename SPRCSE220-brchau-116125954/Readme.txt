@@ -23,5 +23,8 @@
 For diagonalSum, since the anti-diagonal is only defined for square matrices, the anti-diagonnal is not calculated for 
 rectangular matrices as the Professor says on Piazza.
 
+For SparseMatrix, if the matrix given is not sparse, then S will be just returned and also not be cleared to all zeros.
+So, if the matrix S has stuff in it, that will remain in there after the function's execution.
+
 For all my functions, the matrix that stores the result is cleared and set to 0. So, even if the matrix is too big,
 the indices that don't store anything will be set to 0.
