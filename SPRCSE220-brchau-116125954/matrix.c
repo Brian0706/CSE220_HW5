@@ -253,7 +253,7 @@ int DiagonalSum(const int D[4],
   }
   *(*DS) = value;
   value = 0;
-  if(rows == cols){
+  if(rows == cols && dsCols > 1){
     for(i = 0; i < diagonalSize;i++){
       value += *(*(A+i)+(cols-i-1));
     }
