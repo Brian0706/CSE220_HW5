@@ -204,7 +204,7 @@ int Multiplication(const int D[6],
       value = 0;
       for(int n = 0; n < length; n++){
         value += *(*(M+i)+n) * *(*(N+n)+j);
-      }
+      } 
       *(*(A+i)+j) = value;
     }
   }

@@ -21,3 +21,6 @@
 
 For diagonalSum, since the anti-diagonal is only defined for square matrices, the anti-diagonnal is not calculated for 
 rectangular matrices as the Professor says on Piazza.
+
+For all my functions, if the matrix is too big, the extra space will be zero as my functions set the entire matrix to 0, not 
+just the area of the matrix that the function will use. 
