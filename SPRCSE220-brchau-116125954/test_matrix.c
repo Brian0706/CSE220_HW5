@@ -579,7 +579,7 @@ Test(HadamardProduct, compatiable_rect2)
         {5,6}
     };
 
-    int N[3][3] = {
+    int N[3][2] = {
         {2,2},
         {2,2},
         {2,2}
@@ -1896,7 +1896,7 @@ Test(DiagonalSum, smallest_rect)
 {
     int D[4] = {1,2,3,2};
 
-    int A[3][4] = {
+    int A[1][2] = {
         {1,2}
     };
 
@@ -2051,7 +2051,7 @@ Test(DiagonalSum, too_big_5)
 
     cr_assert_eq(r,2);
 }
-\
+
 Test(DiagonalSum, too_big_6)
 {
     int D[4] = {3,3,5,5};
