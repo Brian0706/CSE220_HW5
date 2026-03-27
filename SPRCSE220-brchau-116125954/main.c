@@ -21,16 +21,19 @@ void print_matrix(const char *name, int *matrix, int rows, int cols) {
 }
 
 int main(){
-    int D[4] = {0,0,0,0};
+    int D[6] = {4,3,2,2};
 
-    int A[2][3] = {
-        {0,0,0},
-        {0,0,0}
+    int A[4][3]={
+        {1,2,3},
+        {4,5,6},
+        {7,8,9},
+        {1,2,3}
     };
 
-    int DS[4][3];
+    int DS[2][2];
 
-    int r = DiagonalSum(D,NULL,DS);
-    print_matrix("A",(int *) DS, 4,3);
+    int r = DiagonalSum(D,A,DS);
+    printf("%d\n",r);
+    print_matrix("A",(int *) DS, 2,2);
     return 0;
 }

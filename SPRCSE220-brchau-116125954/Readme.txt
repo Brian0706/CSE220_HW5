@@ -9,8 +9,8 @@
 
  Tests are located in test_matrix.c and functions are located in test_matrix.c
 
- For all the functions, they check if any of the values in the array D is 0 which would indicate that 
- one of dimensions is 0 meaning that one of them does not exist. In this case the function will return a -3.
+ For all the functions, they check if any of the values in the array D is less than one which would indicate that 
+ one of dimensions is either zero or negative which is invalid. In this case the function will return a -3.
 
  Additionally, all functions check for null values and if any the arrays passed are null, the function will return
  a -4 and not do anything. 
@@ -22,5 +22,5 @@
 For diagonalSum, since the anti-diagonal is only defined for square matrices, the anti-diagonnal is not calculated for 
 rectangular matrices as the Professor says on Piazza.
 
-For all my functions, if the matrix is too big, the extra space will be zero as my functions set the entire matrix to 0, not 
-just the area of the matrix that the function will use. 
+For all my functions, the matrix that stores the result is cleared and set to 0. So, even if the matrix is too big,
+the indices that don't store anything will be set to 0.

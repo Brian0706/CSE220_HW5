@@ -203,7 +203,7 @@ int Multiplication(const int D[6],
     for(int j = 0; j < cols; j++){
       value = 0;
       for(int n = 0; n < length; n++){
-        value += *(*(M+i)+n) * *(*(N+n)+j);
+        value += (*(*(M+i)+n)) * (*(*(N+n)+j));
       } 
       *(*(A+i)+j) = value;
     }
@@ -240,9 +240,6 @@ int DiagonalSum(const int D[4],
   int numOfCols = min(cols, dsCols);
   memset(DS, 0, dsRows * dsCols * sizeof(int));
   if(dsRows < rows + 2 || dsCols < cols){
-    if(dsRows < 1){
-      return -1;
-    }
     status = -1;
   }
   else if(dsRows > rows + 2 || dsCols > cols){
