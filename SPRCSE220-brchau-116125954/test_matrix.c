@@ -783,6 +783,27 @@ Test(HadamardProduct, too_small_4){
     cr_assert_eq(r,-3);
 }
 
+Test(HadamardProduct, too_small_5){
+    int D[6] = {3,3,3,3,4,2};
+
+    int M[3][3] = {
+        {1,2,3},
+        {4,5,6},
+        {7,8,9}
+    };
+
+    int N[3][3] = {
+        {2,2,2},
+        {2,2,2},
+        {2,2,2}
+    };
+
+    int A[4][2];
+
+    int r = HadamardProduct(D,M,N,A);
+    cr_assert_eq(r,-3);
+}
+
 Test(HadamardProduct, diff_sizes3){
     int D[6] = {2,3,3,3,2,3};
 
@@ -1455,6 +1476,48 @@ Test(Multiplication, too_small_5)
     cr_assert_eq(r,-3);
 }
 
+Test(Multiplication, too_small_6)
+{
+    int D[6] = {2,3,3,2,1,4};
+    int M[2][3] = {
+        {4,3,2},
+        {3,2,1}
+    };
+
+    int N[3][2] = {
+        {1,2},
+        {3,4},
+        {5,6}
+    };
+
+    int A[1][4];
+
+    int r = Multiplication(D,M,N,A);
+
+    cr_assert_eq(r,-3);
+}
+
+Test(Multiplication, too_small_7)
+{
+    int D[6] = {2,3,3,2,3,1};
+    int M[2][3] = {
+        {4,3,2},
+        {3,2,1}
+    };
+
+    int N[3][2] = {
+        {1,2},
+        {3,4},
+        {5,6}
+    };
+
+    int A[3][1];
+
+    int r = Multiplication(D,M,N,A);
+
+    cr_assert_eq(r,-3);
+}
+
 Test(Multiplication, too_big_2)
 {
     int D[6] = {2,3,3,2,3,2};
@@ -2032,6 +2095,21 @@ Test(DiagonalSum, two_row){
     };
 
     int DS[2][3];
+
+    int r = DiagonalSum(D,A,DS);
+
+    cr_assert_eq(r,-1);
+}
+
+Test(DiagonalSum, two_row_square){
+    int D[4] = {2,2,2,2};
+
+    int A[2][2] = {
+        {3,5},
+        {2,4}
+    };
+
+    int DS[2][2];
 
     int r = DiagonalSum(D,A,DS);
 
