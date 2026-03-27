@@ -397,7 +397,7 @@ Test(SparseMatrix, zero_length){
     int S[3][3];
 
     int result = SparseMatrix(D,M,S);
-    cr_assert_eq(result, -3);
+    cr_assert_eq(result, -4);
 }
 
 Test(SparseMatrix, zero_length_2){
@@ -408,7 +408,7 @@ Test(SparseMatrix, zero_length_2){
     int S[3][3];
 
     int result = SparseMatrix(D,M,S);
-    cr_assert_eq(result, -3);
+    cr_assert_eq(result, -4);
 }
 
 Test(SparseMatrix, zero_length_3){
@@ -419,7 +419,7 @@ Test(SparseMatrix, zero_length_3){
     int S[3][3];
 
     int result = SparseMatrix(D,M,S);
-    cr_assert_eq(result, -3);
+    cr_assert_eq(result, -4);
 }
 
 Test(SparseMatrix, null_M){
@@ -428,7 +428,7 @@ Test(SparseMatrix, null_M){
     int S[3][3];
 
     int result = SparseMatrix(D,NULL,S);
-    cr_assert_eq(result, -4);
+    cr_assert_eq(result, -5);
 }
 
 Test(SparseMatrix, null_S){
@@ -436,7 +436,7 @@ Test(SparseMatrix, null_S){
     
     int M[1][1] = {{0}};
     int result = SparseMatrix(D,M,NULL);
-    cr_assert_eq(result, -4);
+    cr_assert_eq(result, -5);
 }
 
 
@@ -921,7 +921,7 @@ Test(HadamardProduct, zero_length)
 
     int r = HadamardProduct(D,M,N,A);
 
-    cr_assert_eq(r,-3);
+    cr_assert_eq(r,-4);
 }
 
 Test(HadamardProduct, zero_length_2)
@@ -936,7 +936,7 @@ Test(HadamardProduct, zero_length_2)
 
     int r = HadamardProduct(D,M,N,A);
 
-    cr_assert_eq(r,-3);
+    cr_assert_eq(r,-4);
 }
 
 Test(HadamardProduct, zero_length_3)
@@ -951,7 +951,7 @@ Test(HadamardProduct, zero_length_3)
 
     int r = HadamardProduct(D,M,N,A);
 
-    cr_assert_eq(r,-3);
+    cr_assert_eq(r,-4);
 }
 
 Test(HadamardProduct, zero_length_4)
@@ -966,7 +966,7 @@ Test(HadamardProduct, zero_length_4)
 
     int r = HadamardProduct(D,M,N,A);
 
-    cr_assert_eq(r,-3);
+    cr_assert_eq(r,-4);
 }
 
 Test(HadamardProduct, zero_length_5)
@@ -981,7 +981,7 @@ Test(HadamardProduct, zero_length_5)
 
     int r = HadamardProduct(D,M,N,A);
 
-    cr_assert_eq(r,-3);
+    cr_assert_eq(r,-4);
 }
 
 Test(HadamardProduct, zero_length_6)
@@ -996,7 +996,7 @@ Test(HadamardProduct, zero_length_6)
 
     int r = HadamardProduct(D,M,N,A);
 
-    cr_assert_eq(r,-3);
+    cr_assert_eq(r,-4);
 }
 
 Test(HadamardProduct, zero_length_7)
@@ -1011,7 +1011,7 @@ Test(HadamardProduct, zero_length_7)
 
     int r = HadamardProduct(D,M,N,A);
 
-    cr_assert_eq(r,-3);
+    cr_assert_eq(r,-4);
 }
 
 Test(HadamardProduct, null_M)
@@ -1024,7 +1024,7 @@ Test(HadamardProduct, null_M)
 
     int r = HadamardProduct(D,NULL,N,A);
 
-    cr_assert_eq(r,-4);
+    cr_assert_eq(r,-5);
 }
 
 
@@ -1038,7 +1038,7 @@ Test(HadamardProduct, null_N)
 
     int r = HadamardProduct(D,M,NULL,A);
 
-    cr_assert_eq(r,-4);
+    cr_assert_eq(r,-5);
 }
 
 Test(HadamardProduct, null_A)
@@ -1051,7 +1051,7 @@ Test(HadamardProduct, null_A)
 
     int r = HadamardProduct(D,M,N,NULL);
 
-    cr_assert_eq(r,-4);
+    cr_assert_eq(r,-5);
 }
 
 Test(Multiplication, simple_case)
@@ -1608,7 +1608,7 @@ Test(Multiplication, zero_length)
 
     int r = Multiplication(D,M,N,A);
 
-    cr_assert_eq(r,-3);
+    cr_assert_eq(r,-4);
 }
 
 Test(Multiplication, zero_length_2)
@@ -1623,7 +1623,7 @@ Test(Multiplication, zero_length_2)
 
     int r = Multiplication(D,M,N,A);
 
-    cr_assert_eq(r,-3);
+    cr_assert_eq(r,-4);
 }
 
 Test(Multiplication, zero_length_3)
@@ -1638,7 +1638,7 @@ Test(Multiplication, zero_length_3)
 
     int r = Multiplication(D,M,N,A);
 
-    cr_assert_eq(r,-3);
+    cr_assert_eq(r,-4);
 }
 
 Test(Multiplication, zero_length_4)
@@ -1653,7 +1653,7 @@ Test(Multiplication, zero_length_4)
 
     int r = Multiplication(D,M,N,A);
 
-    cr_assert_eq(r,-3);
+    cr_assert_eq(r,-4);
 }
 
 Test(Multiplication, zero_length_5)
@@ -1668,7 +1668,7 @@ Test(Multiplication, zero_length_5)
 
     int r = Multiplication(D,M,N,A);
 
-    cr_assert_eq(r,-3);
+    cr_assert_eq(r,-4);
 }
 
 Test(Multiplication, zero_length_6)
@@ -1683,7 +1683,7 @@ Test(Multiplication, zero_length_6)
 
     int r = Multiplication(D,M,N,A);
 
-    cr_assert_eq(r,-3);
+    cr_assert_eq(r,-4);
 }
 
 Test(Multiplication, zero_length_7)
@@ -1698,7 +1698,7 @@ Test(Multiplication, zero_length_7)
 
     int r = Multiplication(D,M,N,A);
 
-    cr_assert_eq(r,-3);
+    cr_assert_eq(r,-4);
 }
 
 Test(Multiplication, null_M)
@@ -1711,7 +1711,7 @@ Test(Multiplication, null_M)
 
     int r = Multiplication(D,NULL,N,A);
 
-    cr_assert_eq(r,-4);
+    cr_assert_eq(r,-5);
 }
 
 
@@ -1725,7 +1725,7 @@ Test(Multiplication, null_N)
 
     int r = Multiplication(D,M,NULL,A);
 
-    cr_assert_eq(r,-4);
+    cr_assert_eq(r,-5);
 }
 
 Test(Multiplication, null_A)
@@ -1738,7 +1738,7 @@ Test(Multiplication, null_A)
 
     int r = Multiplication(D,M,N,NULL);
 
-    cr_assert_eq(r,-4);
+    cr_assert_eq(r,-5);
 }
 
 Test(DiagonalSum, square_matrix)
@@ -2157,7 +2157,7 @@ Test(DiagonalSum, zero_length)
 
     int r = DiagonalSum(D,A,DS);
 
-    cr_assert_eq(r,-3);
+    cr_assert_eq(r,-4);
 }
 
 Test(DiagonalSum, zero_length_2)
@@ -2170,7 +2170,7 @@ Test(DiagonalSum, zero_length_2)
 
     int r = DiagonalSum(D,A,DS);
 
-    cr_assert_eq(r,-3);
+    cr_assert_eq(r,-4);
 }
 
 Test(DiagonalSum, zero_length_3)
@@ -2183,7 +2183,7 @@ Test(DiagonalSum, zero_length_3)
 
     int r = DiagonalSum(D,A,DS);
 
-    cr_assert_eq(r,-3);
+    cr_assert_eq(r,-4);
 }
 
 Test(DiagonalSum, zero_length_4)
@@ -2196,7 +2196,7 @@ Test(DiagonalSum, zero_length_4)
 
     int r = DiagonalSum(D,A,DS);
 
-    cr_assert_eq(r,-3);
+    cr_assert_eq(r,-4);
 }
 
 Test(DiagonalSum, zero_length_5)
@@ -2209,7 +2209,7 @@ Test(DiagonalSum, zero_length_5)
 
     int r = DiagonalSum(D,A,DS);
 
-    cr_assert_eq(r,-3);
+    cr_assert_eq(r,-4);
 }
 
 Test(DiagonalSum, null_A)
@@ -2220,7 +2220,7 @@ Test(DiagonalSum, null_A)
 
     int r = DiagonalSum(D,NULL,DS);
 
-    cr_assert_eq(r,-4);
+    cr_assert_eq(r,-5);
 }
 
 Test(DiagonalSum, null_DS)
@@ -2231,5 +2231,5 @@ Test(DiagonalSum, null_DS)
 
     int r = DiagonalSum(D,A,NULL);
 
-    cr_assert_eq(r,-4);
+    cr_assert_eq(r,-5);
 }
