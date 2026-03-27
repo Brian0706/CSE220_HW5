@@ -21,18 +21,22 @@ void print_matrix(const char *name, int *matrix, int rows, int cols) {
 }
 
 int main(){
-    int D[4] = {3,3,5,1};
+    int D[6] = {3,1,2,3,3,3};
+    int M[3][1] = {
+        {2},
+        {5},
+        {2}
+    };
 
-    int A[3][3] = {
-        {1,1,1},
+    int N[2][3] = {
         {1,1,1},
         {1,1,1}
     };
 
-    int DS[5][1];
+    int A[3][3];
 
-    int r = DiagonalSum(D,A,DS);
+    int r = Multiplication(D,M,N,A);
     printf("%d\n",r);
-    print_matrix("A",(int *) DS, 5,1);
+    print_matrix("A",(int *) A, 3,3);
     return 0;
 }

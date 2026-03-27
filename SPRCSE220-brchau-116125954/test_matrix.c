@@ -1287,6 +1287,27 @@ Test(Multiplication, not_compatiable_2)
     cr_assert_eq(r,-2);
 }
 
+Test(Multiplication, not_compatiable_3)
+{
+    int D[6] = {3,1,2,3,3,3};
+    int M[3][1] = {
+        {2},
+        {5},
+        {2}
+    };
+
+    int N[2][3] = {
+        {1,1,1},
+        {1,1,1}
+    };
+
+    int A[3][3];
+
+    int r = Multiplication(D,M,N,A);
+
+    cr_assert_eq(r,-1);
+}
+
 Test(Multiplication, too_large_2)
 {
     int D[6] = {3,2,2,3,4,4};
@@ -2022,7 +2043,7 @@ Test(DiagonalSum, one_col){
 
     int A[3][3] = {
         {1,1,1},
-        {1,1,1},
+        {1,2,1},
         {1,1,1}
     };
 

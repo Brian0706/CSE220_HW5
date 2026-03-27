@@ -174,7 +174,7 @@ int Multiplication(const int D[6],
   int status;
   int value;
   if(mCols != nRows){
-    length = min(rows,cols);
+    length = min(mCols,nRows);
     if(aRows < rows || aCols < cols){
       rows = min(aRows,rows);
       cols = min(aCols,cols);
