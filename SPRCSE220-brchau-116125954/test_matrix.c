@@ -2017,6 +2017,22 @@ Test(DiagonalSum, two_row){
     cr_assert_eq(r,-1);
 }
 
+Test(DiagonalSum, one_col){
+    int D[4] = {3,3,5,1};
+
+    int A[3][3] = {
+        {1,1,1},
+        {1,1,1},
+        {1,1,1}
+    };
+
+    int DS[5][1];
+
+    int r = DiagonalSum(D,A,DS);
+
+    cr_assert_eq(r,-1);
+}
+
 Test(DiagonalSum, all_zeros){
     int D[4] = {2,3,4,3};
 
