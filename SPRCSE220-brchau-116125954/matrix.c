@@ -31,6 +31,7 @@ int min(int a, int b)
 int SparseMatrix(int D[2], int M[D[0]][D[1]],
                  int S[3][(D[1] > D[0] ? D[1] : D[0])])
 {
+  /*Checks for invalid cases*/
   if(D == NULL || M == NULL|| S == NULL){
     return -5;
   }
@@ -39,11 +40,13 @@ int SparseMatrix(int D[2], int M[D[0]][D[1]],
   }
   int rows = D[0];
   int cols = D[1];
+  /*Stores the max dimension*/
   int m = max(rows, cols);
   /*Used to store the value at a certain (row,col) of M*/
   int value;
 
   int nonZeroCount = 0;
+  /*Determines if the matrix is sparse*/
   for(int i = 0; i < rows; i++){
     for(int j = 0; j < cols; j++){
       value = *(*(M + i) + j);
@@ -62,6 +65,7 @@ int SparseMatrix(int D[2], int M[D[0]][D[1]],
     for(int j = 0; j < cols; j++){
       value = *(*(M + i) + j);
       if(value){
+        /*Adds the value to the S matrix*/
         *(*(S)+count) = i;
         *(*(S+1)+count) = j;
         *(*(S+2)+count) = value;
@@ -81,6 +85,7 @@ int HadamardProduct(const int D[6],
                     const int N[D[2]][D[3]],
                     int A[D[4]][D[5]])
 {
+  /*Checks for invalid input*/
   if(D == NULL|| M == NULL|| N == NULL|| A == NULL){
     return -5;
   }
@@ -102,10 +107,13 @@ int HadamardProduct(const int D[6],
   int status;
   int mVal;
   int nVal;
+  /*Checks if M and N are compatiable*/
+  /*This if else block figures out the correct status*/
   if(mRows == nRows && mCols == nCols){
     rows = mRows;
     cols = nCols;
     if(aRows < rows || aCols < cols){
+      /*Sets rows and cols to the overlapping region*/
       rows = min(aRows, rows);
       cols = min(aCols,cols);
       status = -3;
@@ -118,9 +126,11 @@ int HadamardProduct(const int D[6],
     }
   }
   else{
+    /*Figures out the overlapping region of M and N*/
     rows = min(mRows,nRows);
     cols = min(mCols,nCols);
     if(aRows < rows || aCols < cols){
+      /*Gets the overlapping region if A cannot hold all the results*/
       rows = min(aRows,rows);
       cols = min(aCols,cols);
       status = -2;
@@ -149,6 +159,7 @@ int Multiplication(const int D[6],
                    const int N[D[2]][D[3]],
                    int A[D[4]][D[5]])
 {
+  /*Checks for invalid input*/
   if(D == NULL|| M == NULL|| N == NULL|| A == NULL){
     return -5;
   }
@@ -170,9 +181,13 @@ int Multiplication(const int D[6],
   int length;
   int status;
   int value;
+  /*Checks if we can do matrix multiplcation with M and N*/
+  /*Figures out what status code to return*/
   if(mCols != nRows){
+    /*If not this finds the closet approximation*/
     length = min(mCols,nRows);
     if(aRows < rows || aCols < cols){
+      /*Find the overlapping region between results and A*/
       rows = min(aRows,rows);
       cols = min(aCols,cols);
       status = -2;
@@ -184,6 +199,7 @@ int Multiplication(const int D[6],
   else{
     length = mCols;
     if(aRows < rows || aCols < cols){
+      /*Find the overlapping region as before*/
       rows = min(aRows,rows);
       cols = min(aCols,cols);
       status = -3;
@@ -199,6 +215,9 @@ int Multiplication(const int D[6],
   for(int i = 0; i < rows; i++){
     for(int j = 0; j < cols; j++){
       value = 0;
+      /*Iterates through row i of M and col j of N 
+      * and does the multipcation.
+      */
       for(int n = 0; n < length; n++){
         value += (*(*(M+i)+n)) * (*(*(N+n)+j));
       } 
@@ -216,6 +235,7 @@ int DiagonalSum(const int D[4],
                 const int A[D[0]][D[1]],
                 int DS[D[2]][D[3]])
 {
+  /*Find invalid input*/
   if(D == NULL|| A == NULL || DS == NULL){
     return -5;
   }
@@ -233,9 +253,11 @@ int DiagonalSum(const int D[4],
   int diagonalSize = min(rows,cols);
   /*Counter variable for for loops*/
   int i;
+  /*Figures out the overlapping region between A and DS*/
   int numOfRows = min(rows, dsRows - 2);
   int numOfCols = min(cols, dsCols);
   memset(DS, 0, dsRows * dsCols * sizeof(int));
+  /*Figures out which status to return*/
   if(dsRows < rows + 2 || dsCols < cols){
     status = -1;
   }
@@ -245,17 +267,22 @@ int DiagonalSum(const int D[4],
   else{
     status = 1;
   }
+  /*Find the diagonal sum*/
   for(i = 0; i < diagonalSize; i++){
     value += *(*(A+i)+i);
   }
   *(*DS) = value;
   value = 0;
+  /*If the matrix is a square and DS can hold it
+    calculate the anti diagonal sum.
+  */
   if(rows == cols && dsCols > 1){
     for(i = 0; i < diagonalSize;i++){
       value += *(*(A+i)+(cols-i-1));
     }
     *(*(DS)+1) = value;
   }
+  /*If there is space, the column sums will be calculated*/
   if(dsRows > 1){
     for(i = 0; i < numOfCols;i++){
       value = 0;
@@ -265,6 +292,7 @@ int DiagonalSum(const int D[4],
       *(*(DS+1)+i) = value;
     }
   }
+  /*If there is space, the row sums will be calculated*/
   if(dsRows > 2){
     for(i = 0; i < numOfRows;i++){
       value = 0;
